@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 
 import BookRelatedList from './BookRelatedList'
 
@@ -55,13 +56,16 @@ class BookRelated extends Component{
 
                 {this.state.books && (
                     <BookRelatedList 
-                        searchText={this.props.searchText}
-                        books={this.state.books} 
-                        onChangedBookStatus={(book, newStatus)=>{}}/>
+                        books={this.state.books} />
                 )}
             </div>
         )
     }
 }
+
+BookRelated.propTypes = {
+    searchText: PropTypes.string.isRequired
+  }
+
 
 export default BookRelated

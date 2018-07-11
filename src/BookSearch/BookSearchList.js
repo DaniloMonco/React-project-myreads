@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 
 import BookPreview from '../BookPreview/BookPreview'
 
@@ -21,5 +22,11 @@ class BookSearchList extends Component {
         )
     }
 }
+
+BookSearchList.propTypes = {
+    books: PropTypes.array.isRequired,
+    searchText: PropTypes.string.isRequired,
+    onChangedBookStatus: PropTypes.func.isRequired
+  }
 
 export default BookSearchList

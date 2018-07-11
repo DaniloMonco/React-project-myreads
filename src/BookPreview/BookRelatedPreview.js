@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import StarRatingComponent from 'react-star-rating-component'
 
 import BookImage from '../BookUtils/BookImage'
@@ -10,14 +11,10 @@ class BookRelatedPreview extends Component {
     render(){
         const {book} = this.props
 
-        let thumbnail=''
-        if (book.imageLinks)
-            thumbnail = `url(${book.imageLinks.thumbnail})`
-
         return (
                 <div className="book">
                     <div className="book-top">
-                        <BookImage thumbnail={thumbnail} />
+                        <BookImage book={book} />
                     </div>
                     <div className="book-title-related">{book.title}</div>
                     <BookAuthors book={book} />
@@ -30,5 +27,10 @@ class BookRelatedPreview extends Component {
         )
     }
 }
+
+BookRelatedPreview.propTypes = {
+    book: PropTypes.object.isRequired
+  };
+
 
 export default BookRelatedPreview

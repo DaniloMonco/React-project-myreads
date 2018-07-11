@@ -5,6 +5,12 @@ Projeto final para avaliação do curso React Fundamentals da Udacity. Este webs
 * Livros que gostaria de ler
 * Livros lidos
 
+Criei diversos componentes para entender o conceito de props e state do REACT. Acredito que tenha desenvolvido uma estrutura bem coesa de componentes, onde cada componente possui uma responsabilidade clara e definida e sem códigos duplicados.
+
+Não utilizei o pacote 'sort-by' para ordernar as listas, achei que a ordem de entrada no array fazia mais sentido visualmente.
+
+A ideia foi desenvolver este projeto para ser "mobile friendly".
+
 Cada livro na estante possui opções para remover da estante ou mover de prateleira para outra. Ao clicar no nome do livro na estante é disponibilizado detalhes do livro em questão. O botão de ação para cada livro exibe apenas opções válidas (não permite
 mover de "Read" para "Read", por exemplo.).A opção none retira o livro da prateleira em questão (e desta forma, volta a ser exibido na listagem de pesquisa).
 
@@ -43,6 +49,9 @@ Este projeto utiliza:
     │   ├── SearchFailure.js # Componente para exibir mensagens de info para o Usuário
     ├── BookDetail # Pasta com componentes de detalhes do Livro
     │   ├── BookDetail.js # Componente para abrir a tela de detalhes do livro
+    │   ├── BookDetailAttributeInfo.js # Componente com as infos de titulo/subtitulo, autores, paginas, editora, etc
+    │   ├── BookDetailDescriptionInfo.js # Componente com a info de descrição do livro/sumário
+    │   ├── BookDetailImageInfo.js # Componente com a info da imagem, ratings e ISBNs
     │   ├── BookDetailInfo.js # Componente com as infos detalhadas do livro
     ├── BookPreview # Pasta com componentes responsaveis pelo preview (info básica do livro)
     │   ├── BookPreview.js # Componente com info básica do Livro (thumbnail, titulo, autores, etc)

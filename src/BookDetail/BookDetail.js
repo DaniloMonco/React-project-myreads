@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 
 import BookDetailInfo from './BookDetailInfo'
 
@@ -37,5 +38,11 @@ class BookDetail extends Component {
     }
 }
 
+BookDetail.propTypes = {
+    book: PropTypes.object.isRequired,
+    searchText: PropTypes.string.isRequired,
+    openBookDetail: PropTypes.func.isRequired,
+    closeBookDetail: PropTypes.func.isRequired
+  };
 
 export default BookDetail

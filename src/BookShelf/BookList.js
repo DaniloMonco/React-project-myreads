@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import {BookOpen} from 'react-feather' 
 import {Bookmark} from 'react-feather'
 import {Book} from 'react-feather'
@@ -9,9 +10,11 @@ import BookShelf from './BookShelf'
 class BookList extends Component {
 
   render(){
-    const currentlyReading = this.props.books.filter((book)=> book.shelf === "currentlyReading")
-    const wantToRead = this.props.books.filter((book)=> book.shelf === "wantToRead")
-    const read = this.props.books.filter((book)=> book.shelf === "read")
+    const {books, onChangedBookStatus} = this.props
+
+    const currentlyReading = books.filter((book)=> book.shelf === "currentlyReading")
+    const wantToRead = books.filter((book)=> book.shelf === "wantToRead")
+    const read = books.filter((book)=> book.shelf === "read")
     
     return (      
       <div className="list-books-content">
@@ -19,27 +22,32 @@ class BookList extends Component {
           <BookShelf 
             title="Currently Reading" 
             books={currentlyReading}
-            onChangedBookStatus={this.props.onChangedBookStatus}>
+            onChangedBookStatus={onChangedBookStatus}>
               <BookOpen />
           </BookShelf>
 
           <BookShelf 
             title="Want to Read" 
             books={wantToRead} 
-            onChangedBookStatus={this.props.onChangedBookStatus}>
+            onChangedBookStatus={onChangedBookStatus}>
               <Bookmark />
           </BookShelf>
 
           <BookShelf 
             title="Read" 
             books={read} 
-            onChangedBookStatus={this.props.onChangedBookStatus}>
+            onChangedBookStatus={onChangedBookStatus}>
               <Book />
           </BookShelf>
         </div>
       </div>
     )
   }
+}
+
+BookList.propTypes = {
+  books: PropTypes.array.isRequired,
+  onChangedBookStatus: PropTypes.func.isRequired
 }
 
 export default BookList

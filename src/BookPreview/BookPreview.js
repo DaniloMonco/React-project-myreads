@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import StarRatingComponent from 'react-star-rating-component'
 
 import BookImage from '../BookUtils/BookImage'
@@ -26,10 +27,6 @@ class BookPreview extends Component {
     render(){
         const {viewMode, book, onChangedBookStatus, searchText} = this.props
 
-        let thumbnail=''
-        if (book.imageLinks)
-            thumbnail = `url(${book.imageLinks.thumbnail})`
-
         let actionsChanger = [
             {key:"currentlyReading", value: "Currently Reading"},
             {key:"wantToRead", value: "Want To Read"},
@@ -41,7 +38,7 @@ class BookPreview extends Component {
         return (
                 <div className="book">
                     <div className="book-top">
-                        <BookImage thumbnail={thumbnail} />
+                        <BookImage book={book} />
                         
                         <BookShelfChanger
                             onChangedBookStatus={onChangedBookStatus}
@@ -71,5 +68,12 @@ class BookPreview extends Component {
         )
     }
 }
+
+BookPreview.propTypes = {
+    viewMode: PropTypes.string.isRequired,
+    book : PropTypes.object.isRequired,
+    onChangedBookStatus : PropTypes.func.isRequired,
+    searchText: PropTypes.string.isRequired
+  }
 
 export default BookPreview

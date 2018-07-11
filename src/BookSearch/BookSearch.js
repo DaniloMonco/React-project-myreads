@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
-import {DebounceInput} from 'react-debounce-input'
+import PropTypes from 'prop-types'
 
+import BookInputSearch from './BookInputSearch'
 import SearchFailure from '../AppUtils/SearchFailure'
 import BookSearchList from './BookSearchList'
 
@@ -59,16 +59,7 @@ class BookSearch extends Component{
 
         return(
             <div className="search-books">
-                <div className="search-books-bar">
-                    <Link className="close-search" to="/">"Close"</Link>
-                    <div className="search-books-input-wrapper">                    
-                        <DebounceInput placeholder="Search by title or author"
-                            minLength={2}
-                            forceNotifyByEnter={true}
-                            debounceTimeout={200}
-                            onChange={(event)=>this.updateSearchText(event.target.value)} />
-                    </div>
-                </div>
+                <BookInputSearch onInputSearchChange={(event)=>this.updateSearchText(event.target.value)} />
                 
                 <BookSearchList 
                     searchText={searchText}
@@ -83,5 +74,10 @@ class BookSearch extends Component{
         )
     }
 }
+
+BookSearch.propTypes = {
+    bookCollection: PropTypes.array.isRequired,
+    onChangedBookStatus: PropTypes.func.isRequired     
+  }
 
 export default BookSearch

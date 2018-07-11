@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 
@@ -17,8 +18,6 @@ const BookShelf = (props) => (
                 <SearchFailure text={"Not yeat!"} width={"30px"} height={"30px"} />
           )}
 
-
-
           <ol className="books-grid">
             {props.books.map((book)=>(
               <li key={book.id}>
@@ -33,5 +32,13 @@ const BookShelf = (props) => (
       </ExpansionPanel>
     </div>    
 )
+
+BookShelf.propTypes = {
+  children: PropTypes.children,
+  title: PropTypes.string.isRequired,
+  books: PropTypes.array.isRequired,
+  onChangedBookStatus: PropTypes.func.isRequired
+}
+
 
 export default BookShelf

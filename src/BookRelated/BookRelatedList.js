@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 
 import BookRelatedPreview from '../BookPreview/BookRelatedPreview'
 
@@ -11,8 +12,6 @@ class BookRelatedList extends Component {
                     {this.props.books && this.props.books.map((book)=>(
                     <li key={book.id}>
                         <BookRelatedPreview
-                            openBookDetail={false}
-                            closeBookDetail={()=>{}}
                             book={book}/>
                     </li>
                     ))}
@@ -20,6 +19,10 @@ class BookRelatedList extends Component {
             </div>
         )
     }
+}
+
+BookRelatedList.propTypes = {
+    book: PropTypes.object.isRequired
 }
 
 export default BookRelatedList

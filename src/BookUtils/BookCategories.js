@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const  BookCategories = (props) => (
     <div className="book-authors">
@@ -7,5 +8,9 @@ const  BookCategories = (props) => (
         )) : <span></span>}
     </div>   
 )
+
+BookCategories.propTypes = {
+    book: PropTypes.object.isRequired
+  }
 
 export default BookCategories
