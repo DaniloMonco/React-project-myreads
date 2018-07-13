@@ -40,8 +40,8 @@ class BookDetail extends Component {
 
 BookDetail.propTypes = {
     book: PropTypes.object.isRequired,
-    searchText: PropTypes.string.isRequired,
-    openBookDetail: PropTypes.func.isRequired,
+    searchText: PropTypes.string,
+    openBookDetail: PropTypes.bool.isRequired,
     closeBookDetail: PropTypes.func.isRequired
   };
 

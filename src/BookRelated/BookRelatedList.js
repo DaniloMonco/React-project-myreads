@@ -22,7 +22,7 @@ class BookRelatedList extends Component {
 }
 
 BookRelatedList.propTypes = {
-    book: PropTypes.object.isRequired
+    books: PropTypes.array
 }
 
 export default BookRelatedList

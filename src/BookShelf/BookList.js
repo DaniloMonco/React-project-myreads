@@ -5,12 +5,13 @@ import {Bookmark} from 'react-feather'
 import {Book} from 'react-feather'
 
 import BookShelf from './BookShelf'
+import Loader from '../AppUtils/Loader'
 
 
 class BookList extends Component {
 
   render(){
-    const {books, onChangedBookStatus} = this.props
+    const {books, onChangedBookStatus, loading} = this.props
 
     const currentlyReading = books.filter((book)=> book.shelf === "currentlyReading")
     const wantToRead = books.filter((book)=> book.shelf === "wantToRead")
@@ -19,6 +20,8 @@ class BookList extends Component {
     return (      
       <div className="list-books-content">
         <div>          
+          <Loader loading={loading} blockUI={loading} />
+
           <BookShelf 
             title="Currently Reading" 
             books={currentlyReading}
@@ -47,6 +50,7 @@ class BookList extends Component {
 
 BookList.propTypes = {
   books: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
   onChangedBookStatus: PropTypes.func.isRequired
 }
 

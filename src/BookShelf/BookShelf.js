@@ -14,7 +14,7 @@ const BookShelf = (props) => (
         <h2 className="bookshelf-title">{props.children} {props.title}</h2>
       </ExpansionPanelSummary>
         <div className="bookshelf-books">
-          {(props.books === 'undefined' || props.books.length === 0) && (
+          {(props.books.length === 0) && (
                 <SearchFailure text={"Not yeat!"} width={"30px"} height={"30px"} />
           )}
 
@@ -34,7 +34,7 @@ const BookShelf = (props) => (
 )
 
 BookShelf.propTypes = {
-  children: PropTypes.children,
+  children: PropTypes.element,
   title: PropTypes.string.isRequired,
   books: PropTypes.array.isRequired,
   onChangedBookStatus: PropTypes.func.isRequired

@@ -8,7 +8,7 @@ const BookInputSearch = ({onInputSearchChange}) =>(
         <Link className="close-search" to="/">"Close"</Link>
         <div className="search-books-input-wrapper">                    
             <DebounceInput placeholder="Search by title or author"
-                minLength={2}
+                minLength={1}
                 forceNotifyByEnter={true}
                 debounceTimeout={200}
                 onChange={onInputSearchChange} />

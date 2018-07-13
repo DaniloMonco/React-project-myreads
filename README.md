@@ -29,6 +29,7 @@ Este projeto utiliza:
 * feather-icons https://feathericons.com/  https://github.com/carmelopullara/react-feather
 * react-debounce-input https://www.npmjs.com/package/react-debounce-input
 * react-star-rating-component https://www.npmjs.com/package/react-star-rating-component
+* react-spinners https://www.npmjs.com/package/react-spinners
 
 ## Estrutura do projeto
 ```bash
@@ -47,6 +48,7 @@ Este projeto utiliza:
     │   ├── AppOpenSearch.js # Componente com o botão de pesquisar livros na BookAPI
     │   ├── AppTitle.js # Componente responsavel pelo titulo da APP
     │   ├── SearchFailure.js # Componente para exibir mensagens de info para o Usuário
+    │   ├── Loader.js # Componente para imagem de loading no carregamento de resultado
     ├── BookDetail # Pasta com componentes de detalhes do Livro
     │   ├── BookDetail.js # Componente para abrir a tela de detalhes do livro
     │   ├── BookDetailAttributeInfo.js # Componente com as infos de titulo/subtitulo, autores, paginas, editora, etc

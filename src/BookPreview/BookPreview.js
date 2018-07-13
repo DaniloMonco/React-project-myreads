@@ -30,10 +30,8 @@ class BookPreview extends Component {
         let actionsChanger = [
             {key:"currentlyReading", value: "Currently Reading"},
             {key:"wantToRead", value: "Want To Read"},
-            {key:"read", value: "Read"}]
-
-        if (viewMode === "shelfPreview")
-            actionsChanger.push({key:"none", value: "None"})
+            {key:"read", value: "Read"},
+            {key:"none", value: "None"}]
 
         return (
                 <div className="book">
@@ -43,6 +41,7 @@ class BookPreview extends Component {
                         <BookShelfChanger
                             onChangedBookStatus={onChangedBookStatus}
                             book={book}
+                            viewMode = {viewMode}
                             actions={actionsChanger} />                    
                     </div>
 
@@ -73,7 +72,7 @@ BookPreview.propTypes = {
     viewMode: PropTypes.string.isRequired,
     book : PropTypes.object.isRequired,
     onChangedBookStatus : PropTypes.func.isRequired,
-    searchText: PropTypes.string.isRequired
+    searchText: PropTypes.string
   }
 
 export default BookPreview

@@ -18,13 +18,15 @@ class BooksApp extends React.Component {
 
   
   componentDidMount(){
+    this.setState({loading:true})
     BooksAPI.getAll().then((books)=> {
-      this.setState({books})
+      this.setState({books: books, loading:false})
     })
   }
   
   state={
-    books:[]
+    books:[],
+    loading: false
   }
 
   changedBookStatus = (book, newStatus) => {   
@@ -71,6 +73,7 @@ class BooksApp extends React.Component {
               title="My Reads" />
 
             <BookList
+              loading={this.state.loading}
               books={this.state.books}
               onChangedBookStatus={this.changedBookStatus} />
 

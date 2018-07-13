@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 import BookRelatedList from './BookRelatedList'
+import Loader from '../AppUtils/Loader'
 
 import * as GoogleBookApi from '../APIs/GoogleBookApi'
 
@@ -10,11 +11,13 @@ import * as GoogleBookApi from '../APIs/GoogleBookApi'
 class BookRelated extends Component{
 
     state ={
-        books:[]
+        books:[],
+        loading: false
     }
 
     getRelated=()=>{
         const {searchText} = this.props
+        this.setState({loading: true})
 
         GoogleBookApi.search(searchText).then((books)=>{
 
@@ -33,10 +36,10 @@ class BookRelated extends Component{
                             )
                         })
 
-            this.setState({books: booksToModel})
+            this.setState({books: booksToModel, loading: false})
         })
         .catch((error) => {
-            this.setState({ books: []})
+            this.setState({ books: [], loading: false})
         });
     }
 
@@ -46,6 +49,7 @@ class BookRelated extends Component{
 
 
     render(){
+        const {books, loading} = this.state
         return (
             <div>
                 <div className="book-detail-description">
@@ -54,9 +58,12 @@ class BookRelated extends Component{
                     </div>
                 </div>
 
-                {this.state.books && (
-                    <BookRelatedList 
-                        books={this.state.books} />
+                {books && (
+                    <div>
+                        <Loader loading={loading} blockUI={false} />
+                        <BookRelatedList 
+                            books={books} />
+                    </div>
                 )}
             </div>
         )

@@ -19,7 +19,7 @@ class BookImage extends Component {
 
 BookImage.propTypes = {
     book: PropTypes.object.isRequired,
-    children: PropTypes.children
+    children: PropTypes.element
 }
 
 export default BookImage
