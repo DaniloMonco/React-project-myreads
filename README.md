@@ -12,9 +12,9 @@ Não utilizei o pacote 'sort-by' para ordernar as listas, achei que a ordem de e
 A ideia foi desenvolver este projeto para ser "mobile friendly".
 
 Cada livro na estante possui opções para remover da estante ou mover de prateleira para outra. Ao clicar no nome do livro na estante é disponibilizado detalhes do livro em questão. O botão de ação para cada livro exibe apenas opções válidas (não permite
-mover de "Read" para "Read", por exemplo.).A opção none retira o livro da prateleira em questão (e desta forma, volta a ser exibido na listagem de pesquisa).
+mover de "Read" para "Read", por exemplo.).A opção none retira o livro da prateleira em questão.
 
-O botão de adicionar, serve para abrir uma tela de pesquisa de livros, onde é possível adicionar livro em determinada prateleira na estante. Os livros adicionados na estante não aparecem na tela de pesquisa, por este motivo não existe a opção "none" no botão de ação, mas sim, apenas as opções para adicionar nas prateleiras. Também é possível obter mais informações do livro ao clicar no nome do livro (aqui temos mais informações do que os livros na prateleira), além das infos do livro em questão, existe uma informações de livros relacionados baseado na pesquisa feita. Esta relação de "livros relacionados" são recuperados através da api do Google Book (e limitado a 10 livros relacionados);
+O botão de adicionar, serve para abrir uma tela de pesquisa de livros, onde é possível adicionar livro em determinada prateleira na estante. Ao clicar no select de "ação" é selecionado o item da prateleira (para os livros já adicionados na estante), para os livros não adicionados nas prateleiras, é selecionado a opção "none" no botão de ação. Também é possível obter mais informações do livro ao clicar no nome do livro (aqui temos mais informações do que os livros na prateleira), além das infos do livro em questão, existe uma informações de livros relacionados baseado na pesquisa feita. Esta relação de "livros relacionados" são recuperados através da api do Google Book (e limitado a 10 livros relacionados);
 
 O projeto foi desenvolvido a partir do template disponibilizado pela Udacity e utilizado [Create React App] para o desenvolvimento.
 
